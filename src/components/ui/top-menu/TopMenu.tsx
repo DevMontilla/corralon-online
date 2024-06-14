@@ -6,17 +6,16 @@ import { SearchBox } from "./SearchBox";
 export const TopMenu = () => {
   return (
     <nav className="flex px-5 justify-between items-center w-full bg-yellow-400">
-      {/* Logo */}
-      <div>
+      {/* Logo web */}
+      <div className="block">
         <Link href={"/"}>
           <span className={`${titleFont.className} antialiased font-bold`}>
-            Corralón
+            CRN
           </span>
-          <span className={`${titleFont.className}`}> | en línea</span>
         </Link>
       </div>
       {/* Center menu */}
-      <div className="hidden sm:block">
+      <div className="hidden md:block">
         <Link
           href={"/category/ferreteria"}
           className={`${titleFont.className} m-2 p-2 rounded-md transition-all hover:bg-gray-100`}
@@ -40,7 +39,7 @@ export const TopMenu = () => {
       {/* Search - Cart - Menu */}
       <div className="flex items-center">
         <SearchBox />
-        <Link href={"/cart"} className="mx-2">
+        <Link href={"/cart"} className="mx-1">
           <div className="relative">
             <span className="absolute text-xs rounded-full px-1 -top-2 font-medium bg-gray-400 -right-2 text-white">
               3
@@ -48,7 +47,7 @@ export const TopMenu = () => {
             <IoCartOutline className="w-5 h-5" />
           </div>
         </Link>
-        <button className="m-2 p-2 rounded-md transition-all hover:bg-gray-100">
+        <button className="m-2 -mr-2 p-2 rounded-md transition-all hover:bg-gray-100">
           <IoMenuOutline className="w-5 h-5" />
         </button>
       </div>
