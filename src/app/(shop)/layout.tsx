@@ -1,4 +1,5 @@
 import { TopMenu } from "@/components";
+import { titleFont } from "@/config/fonts";
 
 export default function ShopLayout({
   children,
@@ -8,7 +9,7 @@ export default function ShopLayout({
   return (
     <main className="min-h-screen">
       <TopMenu />
-      <div className="px-0 sm:px-5">{children}</div>
+      <div className={`${titleFont.className} px-0 sm:px-5`}>{children}</div>
     </main>
   );
 }
