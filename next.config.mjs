@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "arcencohogareasy.vtexassets.com",
+        hostname: "res.cloudinary.com",
         
       },
     ],
