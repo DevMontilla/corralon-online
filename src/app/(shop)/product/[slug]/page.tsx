@@ -1,3 +1,4 @@
+import { QuantitySelector } from "@/components";
 import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
 
@@ -20,6 +21,7 @@ export default function ({ params }: Props) {
         <h1 className="antialiased font-bold text-xl">{product.title}</h1>
         <p className="text-lg mb-5">${product.price}</p>
         {/* Selector de cantidad */}
+        <QuantitySelector quantity={2} />
         <button className="my-5 btn-primary">Agregar al carrito</button>
         <h3 className="font-bold text-sm">Descripción</h3>
         <p className="font-light">{product.description}</p>
