@@ -1,4 +1,8 @@
-import { ProductSlideShow, QuantitySelector } from "@/components";
+import {
+  ProductMobileSlideShow,
+  ProductSlideShow,
+  QuantitySelector,
+} from "@/components";
 import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
 
@@ -17,11 +21,40 @@ export default function ({ params }: Props) {
   return (
     <div className="mt-5 mb-20 grid md:grid-cols-3 gap-3">
       <div className="col-span-1 md:col-span-2">
-        <ProductSlideShow title={product.title} images={product.images}/>
+        <ProductMobileSlideShow
+          title={product.title}
+          images={product.images}
+          className="block md:hidden"
+        />
+        <ProductSlideShow
+          title={product.title}
+          images={product.images}
+          className="hidden md:block"
+        />
       </div>
       <div className="col-span-1 px-5">
         <h1 className="antialiased font-bold text-xl">{product.title}</h1>
-        <p className="text-lg mb-5">${product.price}</p>
+        {product.discounted ? (
+          <>
+            <span className="font-light text-sm">
+              Normal: <span className="line-through">${product.price}</span>
+            </span>
+            <div className="mb-5">
+              <span className="font-light text-2xl pr-5">${product.salePrice}</span>
+              <span className="bg-green-500 text-white rounded-full px-2 py-1 text-xs font-medium">
+                -
+                {(
+                  ((product.price - product.salePrice) / product.price) *
+                  100
+                ).toFixed(0)}
+                <span className="font-light">%</span>
+              </span>
+            </div>
+          </>
+        ) : (
+          <div className="mb-5"><span className="font-light text-2xl">${product.price}</span></div>
+        )}
+
         {/* Selector de cantidad */}
         <QuantitySelector quantity={2} />
         <button className="my-5 btn-primary">Agregar al carrito</button>
