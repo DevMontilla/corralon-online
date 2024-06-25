@@ -1,4 +1,4 @@
-import { QuantitySelector } from "@/components";
+import { ProductSlideShow, QuantitySelector } from "@/components";
 import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
 
@@ -16,7 +16,9 @@ export default function ({ params }: Props) {
 
   return (
     <div className="mt-5 mb-20 grid md:grid-cols-3 gap-3">
-      <div className="col-span-1 md:col-span-2"></div>
+      <div className="col-span-1 md:col-span-2">
+        <ProductSlideShow title={product.title} images={product.images}/>
+      </div>
       <div className="col-span-1 px-5">
         <h1 className="antialiased font-bold text-xl">{product.title}</h1>
         <p className="text-lg mb-5">${product.price}</p>
