@@ -19,8 +19,10 @@ export default function ({ params }: Props) {
   }
 
   return (
-    <div className="mt-5 mb-20 grid md:grid-cols-3 gap-3">
-      <div className="col-span-1 md:col-span-2">
+    <div className="mt-5 mb-20 grid gap-3 md:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-9">
+      <div className="hidden 2xl:block"></div>
+      <div className="hidden 2xl:block"></div>
+      <div className="col-span-1 md:col-span-2 lg:col-span-3">
         <ProductMobileSlideShow
           title={product.title}
           images={product.images}
@@ -32,7 +34,7 @@ export default function ({ params }: Props) {
           className="hidden md:block"
         />
       </div>
-      <div className="col-span-1 px-5">
+      <div className="col-span-1 lg:col-span-2 px-5">
         <h1 className="antialiased font-bold text-xl">{product.title}</h1>
         {product.discounted ? (
           <>
@@ -61,6 +63,8 @@ export default function ({ params }: Props) {
         <h3 className="font-bold text-sm">Descripción</h3>
         <p className="font-light">{product.description}</p>
       </div>
+      <div className="hidden 2xl:block"></div>
+      <div className="hidden 2xl:block"></div>
     </div>
   );
 }
